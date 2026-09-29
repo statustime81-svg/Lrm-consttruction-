@@ -12,6 +12,7 @@ import {
   Building2,
   Award,
   ShieldCheck,
+  ExternalLink,
 } from 'lucide-react';
 
 export default function Footer() {
@@ -364,6 +365,38 @@ export default function Footer() {
             ))}
           </div>
         </div>
+
+        {/* ===== CENTERED "DESIGN & DEVELOPED BY" BADGE ===== */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-10 flex justify-center"
+        >
+          <a
+            href="https://www.nexovax.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 rounded-full bg-white px-5 py-2.5 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
+          >
+            {/* 👇 Yaha apni PNG image ka path dena hai */}
+            <img
+              src="/nexova.png"
+              alt="Nexova X"
+              className="h-6 w-auto"
+            />
+            <div className="flex flex-col text-left">
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-500">
+                Design &amp; Developed by
+              </span>
+              <span className="text-sm font-bold text-zinc-900">
+                Nexova X
+              </span>
+            </div>
+            <ExternalLink className="h-4 w-4 text-zinc-400 transition-colors group-hover:text-amber-500" />
+          </a>
+        </motion.div>
 
         {/* ===== BIG WATERMARK - WHITE GLOW ===== */}
         <div className="pointer-events-none relative mt-16 select-none overflow-hidden">
