@@ -299,6 +299,7 @@ const About = () => {
             and Zilla Parishads.
           </motion.p>
 
+          {/* Compact Stats Row — FIXED: 13+ static */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -307,28 +308,28 @@ const About = () => {
           >
             <div>
               <div className="text-2xl font-bold text-amber-500 md:text-3xl">
-                <Counter value="13" suffix="+" />
+                13+
               </div>
               <div className="mt-0.5 text-[10px] font-bold uppercase tracking-widest text-gray-400">Years</div>
             </div>
             <div className="hidden h-10 w-px bg-white/10 md:block" />
             <div>
               <div className="text-2xl font-bold text-amber-500 md:text-3xl">
-                <Counter value="75" suffix="+" />
+                75+
               </div>
               <div className="mt-0.5 text-[10px] font-bold uppercase tracking-widest text-gray-400">Projects</div>
             </div>
             <div className="hidden h-10 w-px bg-white/10 md:block" />
             <div>
               <div className="text-2xl font-bold text-amber-500 md:text-3xl">
-                <Counter value="23" suffix="" />
+                23
               </div>
               <div className="mt-0.5 text-[10px] font-bold uppercase tracking-widest text-gray-400">Team</div>
             </div>
             <div className="hidden h-10 w-px bg-white/10 md:block" />
             <div>
               <div className="text-2xl font-bold text-amber-500 md:text-3xl">
-                <Counter value="2" suffix="" />
+                2
               </div>
               <div className="mt-0.5 text-[10px] font-bold uppercase tracking-widest text-gray-400">States</div>
             </div>
