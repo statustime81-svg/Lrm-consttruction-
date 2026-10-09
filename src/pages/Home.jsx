@@ -177,12 +177,13 @@ const Home = () => {
       </section>
 
       {/* ===== 2. COMPANY INTRO ===== */}
-        {/* ===== 2. COMPANY INTRO ===== */}
+          {/* ===== 2. COMPANY INTRO ===== */}
       <section className="relative overflow-hidden bg-white py-24">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-amber-50 blur-3xl" />
           <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-amber-50/70 blur-3xl" />
         </div>
+
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="grid gap-16 lg:grid-cols-12 lg:items-center">
             {/* LEFT SIDE — Content */}
@@ -195,8 +196,11 @@ const Home = () => {
                 className="flex items-center gap-3"
               >
                 <span className="h-px w-10 bg-amber-500" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-600">The Company</span>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-600">
+                  The Company
+                </span>
               </motion.div>
+
               <motion.h2
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -208,6 +212,7 @@ const Home = () => {
                 <br className="hidden md:block" />
                 <span className="text-amber-500"> built on the discipline of the site.</span>
               </motion.h2>
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -233,7 +238,9 @@ const Home = () => {
                     <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/40 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
                       <Target size={22} strokeWidth={2.2} />
                     </div>
-                    <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600">— Vision —</div>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600">
+                      — Vision —
+                    </div>
                     <p className="mt-3 text-sm font-medium leading-relaxed text-gray-800">
                       Transforming Communities by Building the Nation's Infrastructure.
                     </p>
@@ -254,7 +261,9 @@ const Home = () => {
                     <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/40 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">
                       <Flag size={22} strokeWidth={2.2} />
                     </div>
-                    <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600">— Mission —</div>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600">
+                      — Mission —
+                    </div>
                     <p className="mt-3 text-sm font-medium leading-relaxed text-gray-800">
                       Building Lasting Value for Our Customers, People, and Society.
                     </p>
@@ -264,7 +273,7 @@ const Home = () => {
               </div>
             </div>
 
-            {/* RIGHT SIDE — Rotating Core Values Carousel */}
+            {/* RIGHT SIDE — Rotating Core Values Circle */}
             <motion.div
               initial={{ opacity: 0, scale: 0.85 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -273,69 +282,52 @@ const Home = () => {
               className="lg:col-span-5"
             >
               <div className="relative mx-auto aspect-square w-full max-w-md">
-                {/* Outer ring */}
+                {/* Concentric dashed rings */}
                 <div className="absolute inset-0 rounded-full border-2 border-dashed border-amber-200/60" />
-                <div className="absolute inset-8 rounded-full border border-amber-100" />
-                <div className="absolute inset-16 rounded-full border border-dashed border-amber-100/80" />
-
-                {/* Center hub */}
-                <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
-                  <motion.div
-                    animate={{
-                      boxShadow: [
-                        '0 0 0 0 rgba(245, 158, 11, 0.4)',
-                        '0 0 0 20px rgba(245, 158, 11, 0)',
-                      ],
-                    }}
-                    transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
-                    className="flex h-28 w-28 flex-col items-center justify-center gap-1 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-2xl shadow-amber-500/50"
-                  >
-                    <Sparkles size={22} />
-                    <div className="text-[9px] font-bold uppercase tracking-[0.2em] text-amber-100">
-                      Core
-                    </div>
-                    <div className="text-xs font-bold uppercase tracking-widest">
-                      Values
-                    </div>
-                  </motion.div>
-                </div>
+                <div className="absolute inset-[12%] rounded-full border border-amber-100" />
+                <div className="absolute inset-[26%] rounded-full border border-dashed border-amber-100/80" />
 
                 {/* Rotating Orbit */}
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+                  transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
                   className="absolute inset-0"
                 >
                   {[
                     { n: '01', title: 'Integrity', icon: ShieldCheck },
-                    { n: '02', title: 'Ownership Mindset', icon: Users },
+                    { n: '02', title: 'Ownership', icon: Users },
                     { n: '03', title: 'Fast Movers', icon: Zap },
                     { n: '04', title: 'Committed', icon: CheckCircle2 },
                     { n: '05', title: 'Humility', icon: Award },
                   ].map((value, index, arr) => {
                     const Icon = value.icon;
-                    const angle = (index / arr.length) * 360 - 90;
-                    const radius = 42; // % of container
+                    const total = arr.length;
+                    const angleDeg = (360 / total) * index - 90;
+                    const angleRad = (angleDeg * Math.PI) / 180;
+                    const radiusPercent = 36;
+                    const x = 50 + radiusPercent * Math.cos(angleRad);
+                    const y = 50 + radiusPercent * Math.sin(angleRad);
 
                     return (
                       <div
                         key={value.n}
-                        className="absolute left-1/2 top-1/2"
+                        className="absolute"
                         style={{
-                          transform: `rotate(${angle}deg) translate(${radius}%) rotate(${-angle}deg)`,
+                          left: `${x}%`,
+                          top: `${y}%`,
+                          transform: 'translate(-50%, -50%)',
                         }}
                       >
-                        {/* Counter-rotate to keep upright */}
+                        {/* Counter-rotate to keep card upright */}
                         <motion.div
                           animate={{ rotate: -360 }}
-                          transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-                          className="-translate-x-1/2 -translate-y-1/2"
+                          transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
                         >
-                          <div className="group flex h-20 w-20 flex-col items-center justify-center gap-1 rounded-2xl border border-amber-100 bg-white text-center shadow-lg transition-all duration-300 hover:scale-110 hover:border-amber-400 hover:shadow-2xl hover:shadow-amber-200/60 md:h-24 md:w-24">
+                          <div className="group flex h-[86px] w-[86px] cursor-pointer flex-col items-center justify-center gap-1 rounded-2xl border-2 border-amber-100 bg-white shadow-lg transition-all duration-300 hover:scale-110 hover:border-amber-400 hover:shadow-2xl hover:shadow-amber-200/60 md:h-24 md:w-24">
                             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-100 text-amber-600 transition-all duration-300 group-hover:bg-amber-500 group-hover:text-white md:h-9 md:w-9">
                               <Icon size={16} strokeWidth={2.2} />
                             </div>
-                            <div className="px-1 text-[8px] font-bold uppercase leading-tight tracking-wider text-gray-800 md:text-[9px]">
+                            <div className="px-1 text-center text-[9px] font-bold uppercase leading-tight tracking-wider text-gray-700 md:text-[10px]">
                               {value.title}
                             </div>
                           </div>
@@ -345,26 +337,52 @@ const Home = () => {
                   })}
                 </motion.div>
 
-                {/* Bottom badge */}
+                {/* Center Hub */}
+                <div className="pointer-events-none absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
+                  <motion.div
+                    animate={{ scale: [1, 1.06, 1] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                    className="flex h-[86px] w-[86px] flex-col items-center justify-center gap-0.5 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-2xl shadow-amber-500/50 md:h-24 md:w-24"
+                  >
+                    <Sparkles size={16} className="md:size-5" />
+                    <div className="text-[7px] font-bold uppercase tracking-[0.25em] text-amber-100 md:text-[8px]">
+                      Core
+                    </div>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.12em] md:text-[11px]">
+                      Values
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Pulsing dot on orbit (decorative) */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
+                  className="absolute inset-0"
                 >
-                  <div className="flex items-center gap-2 rounded-full border border-amber-200 bg-white px-4 py-2 shadow-md">
-                    <div className="h-2 w-2 animate-pulse rounded-full bg-amber-500" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-amber-700">
-                      The Discipline of the Site
-                    </span>
-                  </div>
+                  <div className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-amber-500 shadow-lg shadow-amber-500/60" />
                 </motion.div>
               </div>
+
+              {/* Bottom badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="mt-8 flex justify-center"
+              >
+                <div className="flex items-center gap-2 rounded-full border border-amber-200 bg-white px-4 py-2 shadow-md">
+                  <div className="h-2 w-2 animate-pulse rounded-full bg-amber-500" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-amber-700">
+                    The Discipline of the Site
+                  </span>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
 
-          {/* ===== STATS BAR (Bottom) ===== */}
+          {/* ===== STATS BAR ===== */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -401,7 +419,6 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-
       
       {/* ===== 3. SERVICES ===== */}
       <section id="services" className="bg-gray-50 py-24">
