@@ -17,6 +17,8 @@ import {
   Mail,
   Phone,
   X,
+  Sparkles,
+  Zap,
 } from 'lucide-react';
 
 import { supabase } from '../lib/supabase';
@@ -118,6 +120,20 @@ const About = () => {
     message: '',
   });
 
+  // ===== COMPANY INTRO DATA =====
+  const companyIntro = {
+    title: 'A value-driven organization, built on the discipline of the site.',
+    desc: 'LMR Constrtech Private Limited executes civil infrastructure for public bodies and private developers across Maharashtra and Goa. Thirteen years of continuous field work have produced an organisation where engineering, billing and quality sit in the same room — and where a drawing is answered by a method statement before a machine is mobilised.',
+    vision: "Transforming Communities by Building the Nation's Infrastructure.",
+    mission: 'Building Lasting Value for Our Customers, People, and Society.',
+    stats: [
+      { value: '13+', label: 'Years in the Field', sub: 'Continuous Civil Execution Since 2013' },
+      { value: '75+', label: 'Projects Completed', sub: 'Municipal, PWD and Private Mandates' },
+      { value: '23', label: 'Core Team Members', sub: 'Engineers, Supervisors & QS' },
+      { value: '2', label: 'States Active', sub: 'Maharashtra & Goa' },
+    ],
+  };
+
   // ===== SUBMIT — SUPABASE CONNECT =====
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -182,13 +198,6 @@ const About = () => {
   }, []);
 
   // ===== DATA =====
-  const stats = [
-    { value: '13', suffix: '+', label: 'Years in the Field', sub: 'Continuous Civil Execution Since 2013' },
-    { value: '75', suffix: '+', label: 'Projects Completed', sub: 'Municipal, PWD & Private Mandates' },
-    { value: '23', suffix: '', label: 'Core Team Members', sub: 'Engineers, Supervisors & QS' },
-    { value: '2', suffix: '', label: 'States Active', sub: 'Maharashtra & Goa' },
-  ];
-
   const values = [
     { n: '01', title: 'Integrity', desc: 'We uphold honesty and ethical principles, consistently doing what is right.' },
     { n: '02', title: 'Ownership Mindset', desc: 'We take responsibility for our work, remain accountable and deliver with pride.' },
@@ -299,7 +308,6 @@ const About = () => {
             and Zilla Parishads.
           </motion.p>
 
-          {/* Compact Stats Row — FIXED: 13+ static */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -307,30 +315,22 @@ const About = () => {
             className="mt-10 inline-flex flex-wrap items-center gap-x-8 gap-y-4 rounded-2xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-md md:gap-x-12 md:px-8 md:py-5"
           >
             <div>
-              <div className="text-2xl font-bold text-amber-500 md:text-3xl">
-                13+
-              </div>
+              <div className="text-2xl font-bold text-amber-500 md:text-3xl">13+</div>
               <div className="mt-0.5 text-[10px] font-bold uppercase tracking-widest text-gray-400">Years</div>
             </div>
             <div className="hidden h-10 w-px bg-white/10 md:block" />
             <div>
-              <div className="text-2xl font-bold text-amber-500 md:text-3xl">
-                75+
-              </div>
+              <div className="text-2xl font-bold text-amber-500 md:text-3xl">75+</div>
               <div className="mt-0.5 text-[10px] font-bold uppercase tracking-widest text-gray-400">Projects</div>
             </div>
             <div className="hidden h-10 w-px bg-white/10 md:block" />
             <div>
-              <div className="text-2xl font-bold text-amber-500 md:text-3xl">
-                23
-              </div>
+              <div className="text-2xl font-bold text-amber-500 md:text-3xl">23</div>
               <div className="mt-0.5 text-[10px] font-bold uppercase tracking-widest text-gray-400">Team</div>
             </div>
             <div className="hidden h-10 w-px bg-white/10 md:block" />
             <div>
-              <div className="text-2xl font-bold text-amber-500 md:text-3xl">
-                2
-              </div>
+              <div className="text-2xl font-bold text-amber-500 md:text-3xl">2</div>
               <div className="mt-0.5 text-[10px] font-bold uppercase tracking-widest text-gray-400">States</div>
             </div>
           </motion.div>
@@ -347,8 +347,7 @@ const About = () => {
         </motion.div>
       </section>
 
-      {/* ===== 2. THE COMPANY ===== */}
-         {/* ===== 2. COMPANY INTRO ===== */}
+      {/* ===== 2. COMPANY INTRO ===== */}
       <section className="relative overflow-hidden bg-white py-24">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-amber-50 blur-3xl" />
@@ -413,7 +412,7 @@ const About = () => {
                       — Vision —
                     </div>
                     <p className="mt-3 text-sm font-medium leading-relaxed text-gray-800">
-                      Transforming Communities by Building the Nation's Infrastructure.
+                      {companyIntro.vision}
                     </p>
                     <div className="mt-5 h-0.5 w-8 bg-amber-500 transition-all duration-500 group-hover:w-full" />
                   </div>
@@ -436,7 +435,7 @@ const About = () => {
                       — Mission —
                     </div>
                     <p className="mt-3 text-sm font-medium leading-relaxed text-gray-800">
-                      Building Lasting Value for Our Customers, People, and Society.
+                      {companyIntro.mission}
                     </p>
                     <div className="mt-5 h-0.5 w-8 bg-amber-500 transition-all duration-500 group-hover:w-full" />
                   </div>
@@ -489,7 +488,6 @@ const About = () => {
                           transform: 'translate(-50%, -50%)',
                         }}
                       >
-                        {/* Counter-rotate to keep card upright */}
                         <motion.div
                           animate={{ rotate: -360 }}
                           transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
@@ -525,7 +523,7 @@ const About = () => {
                   </motion.div>
                 </div>
 
-                {/* Pulsing dot on orbit (decorative) */}
+                {/* Pulsing dot on orbit */}
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
@@ -535,7 +533,6 @@ const About = () => {
                 </motion.div>
               </div>
 
-              {/* Bottom badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -590,6 +587,7 @@ const About = () => {
           </motion.div>
         </div>
       </section>
+
       {/* ===== 3. LEADERSHIP ===== */}
       <section className="relative overflow-hidden bg-gray-50 py-24">
         <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-amber-100/40 blur-3xl" />
@@ -794,13 +792,8 @@ const About = () => {
                     onError={(e) => {
                       e.target.style.display = 'none';
                       e.target.parentElement.classList.add(
-                        'flex',
-                        'aspect-[4/5]',
-                        'items-center',
-                        'justify-center',
-                        'bg-gradient-to-br',
-                        'from-amber-500/20',
-                        'to-amber-700/20'
+                        'flex', 'aspect-[4/5]', 'items-center', 'justify-center',
+                        'bg-gradient-to-br', 'from-amber-500/20', 'to-amber-700/20'
                       );
                       e.target.parentElement.innerHTML = `
                         <div class="text-center">
