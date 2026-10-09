@@ -177,49 +177,102 @@ const Home = () => {
       </section>
 
       {/* ===== 2. COMPANY INTRO ===== */}
+      {/* ===== 2. COMPANY INTRO ===== */}
       <section className="relative overflow-hidden bg-white py-24">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-amber-50 blur-3xl" />
           <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-amber-50/70 blur-3xl" />
         </div>
         <div className="relative mx-auto max-w-7xl px-6">
-          <div className="grid gap-16 lg:grid-cols-12 lg:items-center">
+          <div className="grid gap-16 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-7">
-              <div className="flex items-center gap-3">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-3"
+              >
                 <span className="h-px w-10 bg-amber-500" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-600">The Company</span>
-              </div>
-              <h2 className="mt-5 text-3xl font-bold leading-tight text-gray-900 md:text-4xl lg:text-[2.5rem]">
-                A value-driven organization,<br className="hidden md:block" />
+              </motion.div>
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="mt-5 text-3xl font-bold leading-tight text-gray-900 md:text-4xl lg:text-[2.5rem]"
+              >
+                A value-driven organization,
+                <br className="hidden md:block" />
                 <span className="text-amber-500"> built on the discipline of the site.</span>
-              </h2>
-              <p className="mt-6 text-base leading-relaxed text-gray-600 md:text-lg">{companyIntro.desc}</p>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="mt-6 text-base leading-relaxed text-gray-600 md:text-lg"
+              >
+                {companyIntro.desc}
+              </motion.p>
 
+              {/* Vision & Mission Cards */}
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
-                <div className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-amber-200 hover:shadow-xl hover:shadow-amber-100/60">
-                  <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-amber-50 transition-transform duration-500 group-hover:scale-150" />
+                {/* Vision Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30, rotate: -2 }}
+                  whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-amber-200 hover:shadow-2xl hover:shadow-amber-100/60"
+                >
+                  <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-amber-50 transition-all duration-700 group-hover:scale-150" />
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-500 via-amber-400 to-transparent" />
                   <div className="relative">
-                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-amber-500 text-white shadow-md shadow-amber-500/30">
-                      <Target size={20} strokeWidth={2.2} />
+                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/40 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                      <Target size={22} strokeWidth={2.2} />
                     </div>
-                    <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-amber-600">Vision</h3>
-                    <p className="mt-2 text-sm font-medium leading-relaxed text-gray-800">{companyIntro.vision}</p>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600">— Vision —</div>
+                    <p className="mt-3 text-sm font-medium leading-relaxed text-gray-800">
+                      Transforming Communities by Building the Nation's Infrastructure.
+                    </p>
+                    <div className="mt-5 h-0.5 w-8 bg-amber-500 transition-all duration-500 group-hover:w-full" />
                   </div>
-                </div>
-                <div className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-amber-200 hover:shadow-xl hover:shadow-amber-100/60">
-                  <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-amber-50 transition-transform duration-500 group-hover:scale-150" />
+                </motion.div>
+
+                {/* Mission Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30, rotate: 2 }}
+                  whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-amber-200 hover:shadow-2xl hover:shadow-amber-100/60"
+                >
+                  <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-amber-50 transition-all duration-700 group-hover:scale-150" />
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-500 via-amber-400 to-transparent" />
                   <div className="relative">
-                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-amber-500 text-white shadow-md shadow-amber-500/30">
-                      <Flag size={20} strokeWidth={2.2} />
+                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/40 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">
+                      <Flag size={22} strokeWidth={2.2} />
                     </div>
-                    <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-amber-600">Mission</h3>
-                    <p className="mt-2 text-sm font-medium leading-relaxed text-gray-800">{companyIntro.mission}</p>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600">— Mission —</div>
+                    <p className="mt-3 text-sm font-medium leading-relaxed text-gray-800">
+                      Building Lasting Value for Our Customers, People, and Society.
+                    </p>
+                    <div className="mt-5 h-0.5 w-8 bg-amber-500 transition-all duration-500 group-hover:w-full" />
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
 
-            <div className="lg:col-span-5">
+            {/* Stats Card (Right Side) */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-5"
+            >
               <div className="relative">
                 <div className="absolute -left-3 -top-3 h-16 w-16 rounded-tl-3xl border-l-2 border-t-2 border-amber-400" />
                 <div className="absolute -bottom-3 -right-3 h-16 w-16 rounded-br-3xl border-b-2 border-r-2 border-amber-400" />
@@ -229,13 +282,24 @@ const Home = () => {
                       <div className="text-xs font-bold uppercase tracking-[0.15em] text-gray-500">By The Numbers</div>
                       <div className="mt-1 text-lg font-bold text-gray-900">Our Track Record</div>
                     </div>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500 text-white shadow-md shadow-amber-500/30">
+                    <motion.div
+                      animate={{ rotate: [0, 10, -10, 0] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                      className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500 text-white shadow-md shadow-amber-500/30"
+                    >
                       <Award size={20} />
-                    </div>
+                    </motion.div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     {companyIntro.stats.map((s, index) => (
-                      <div key={s.label} className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-5 transition-all duration-500 hover:-translate-y-1 hover:border-amber-200 hover:shadow-lg">
+                      <motion.div
+                        key={s.label}
+                        initial={{ opacity: 0, scale: 0.85 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.4 + index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                        className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-5 transition-all duration-500 hover:-translate-y-1 hover:border-amber-200 hover:shadow-lg"
+                      >
                         <div className="absolute right-3 top-3 text-[10px] font-bold text-gray-300">
                           {String(index + 1).padStart(2, '0')}
                         </div>
@@ -243,7 +307,7 @@ const Home = () => {
                         <div className="mt-2 text-sm font-semibold text-gray-900">{s.label}</div>
                         <div className="mt-1 text-[11px] leading-snug text-gray-500">{s.sub}</div>
                         <div className="mt-3 h-0.5 w-6 bg-amber-400 transition-all duration-500 group-hover:w-12" />
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
                   <div className="mt-6 flex items-center gap-2 rounded-xl bg-amber-50 p-3">
@@ -252,11 +316,90 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
+
+          {/* ===== CORE VALUES ROW ===== */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-20"
+          >
+            {/* Core Values Heading */}
+            <div className="mb-10 flex items-center justify-center gap-4">
+              <span className="h-px w-12 bg-gradient-to-r from-transparent to-amber-500" />
+              <div className="flex items-center gap-3">
+                <Sparkles size={18} className="text-amber-500" />
+                <span className="text-xs font-bold uppercase tracking-[0.3em] text-amber-600">Core Values</span>
+                <Sparkles size={18} className="text-amber-500" />
+              </div>
+              <span className="h-px w-12 bg-gradient-to-l from-transparent to-amber-500" />
+            </div>
+
+            {/* Core Values Grid */}
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {[
+                { n: '01', title: 'Integrity', icon: ShieldCheck, desc: 'Ethical & honest, always.' },
+                { n: '02', title: 'Ownership Mindset', icon: Users, desc: 'Accountable, deliver with pride.' },
+                { n: '03', title: 'Fast Movers & Passion for Winning', icon: Zap, desc: 'Speed, innovation, shared success.' },
+                { n: '04', title: 'Committed', icon: CheckCircle2, desc: 'Promises honoured, always.' },
+                { n: '05', title: 'Humility', icon: Award, desc: 'Grounded, respectful, growing together.' },
+              ].map((value, index) => {
+                const Icon = value.icon;
+                return (
+                  <motion.div
+                    key={value.n}
+                    initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.6,
+                      delay: index * 0.1,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                    className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-500 hover:border-amber-300 hover:shadow-2xl hover:shadow-amber-100/60"
+                  >
+                    {/* Number watermark */}
+                    <div className="absolute -right-2 -top-4 text-6xl font-bold text-gray-100/80 transition-colors duration-500 group-hover:text-amber-100/80">
+                      {value.n}
+                    </div>
+
+                    {/* Hover gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-50/0 via-amber-50/0 to-amber-100/0 opacity-0 transition-opacity duration-500 group-hover:from-amber-50/60 group-hover:to-amber-100/40 group-hover:opacity-100" />
+
+                    <div className="relative">
+                      {/* Icon */}
+                      <motion.div
+                        whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                        transition={{ duration: 0.5 }}
+                        className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/30"
+                      >
+                        <Icon size={22} strokeWidth={2.2} />
+                      </motion.div>
+
+                      {/* Title */}
+                      <h3 className="text-sm font-bold leading-snug text-gray-900 transition-colors duration-300 group-hover:text-amber-600 md:text-base">
+                        {value.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="mt-2 text-xs leading-relaxed text-gray-500">
+                        {value.desc}
+                      </p>
+
+                      {/* Bottom line */}
+                      <div className="mt-4 h-0.5 w-8 bg-amber-500 transition-all duration-500 group-hover:w-full" />
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
         </div>
       </section>
-
       {/* ===== 3. SERVICES ===== */}
       <section id="services" className="bg-gray-50 py-24">
         <div className="mx-auto max-w-7xl px-6">
