@@ -348,144 +348,248 @@ const About = () => {
       </section>
 
       {/* ===== 2. THE COMPANY ===== */}
-      <Section className="relative overflow-hidden py-24">
-        <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-amber-50 blur-3xl" />
+         {/* ===== 2. COMPANY INTRO ===== */}
+      <section className="relative overflow-hidden bg-white py-24">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-amber-50 blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-amber-50/70 blur-3xl" />
+        </div>
 
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="grid gap-16 lg:grid-cols-12 lg:items-center">
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-              custom={0}
-              className="lg:col-span-7"
-            >
-              <div className="flex items-center gap-3">
+            {/* LEFT SIDE — Content */}
+            <div className="lg:col-span-7">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-3"
+              >
                 <span className="h-px w-10 bg-amber-500" />
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-amber-600">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-600">
                   The Company
                 </span>
-              </div>
-              <h2 className="mt-5 text-3xl font-bold leading-tight text-gray-900 md:text-4xl lg:text-5xl">
+              </motion.div>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="mt-5 text-3xl font-bold leading-tight text-gray-900 md:text-4xl lg:text-[2.5rem]"
+              >
                 A value-driven organization,
                 <br className="hidden md:block" />
                 <span className="text-amber-500"> built on the discipline of the site.</span>
-              </h2>
-              <p className="mt-6 text-base leading-relaxed text-gray-600 md:text-lg">
-                LMR Constrtech Private Limited executes civil infrastructure for
-                public bodies and private developers across Maharashtra and Goa.
-                Thirteen years of continuous field work have produced an organisation
-                where engineering, billing and quality sit in the same room — and
-                where a drawing is answered by a method statement before a machine
-                is mobilised.
-              </p>
+              </motion.h2>
 
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="mt-6 text-base leading-relaxed text-gray-600 md:text-lg"
+              >
+                {companyIntro.desc}
+              </motion.p>
+
+              {/* Vision & Mission Cards */}
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
                 <motion.div
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
+                  initial={{ opacity: 0, y: 30, rotate: -2 }}
+                  whileInView={{ opacity: 1, y: 0, rotate: 0 }}
                   viewport={{ once: true }}
-                  custom={1}
-                  className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-amber-200 hover:shadow-xl hover:shadow-amber-100/60"
+                  transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-amber-200 hover:shadow-2xl hover:shadow-amber-100/60"
                 >
-                  <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-amber-50 transition-transform duration-500 group-hover:scale-150" />
+                  <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-amber-50 transition-all duration-700 group-hover:scale-150" />
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-500 via-amber-400 to-transparent" />
                   <div className="relative">
-                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-amber-500 text-white shadow-md shadow-amber-500/30">
-                      <Target size={20} strokeWidth={2.2} />
+                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/40 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                      <Target size={22} strokeWidth={2.2} />
                     </div>
-                    <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-amber-600">Vision</h3>
-                    <p className="mt-2 text-sm font-medium leading-relaxed text-gray-800">
+                    <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600">
+                      — Vision —
+                    </div>
+                    <p className="mt-3 text-sm font-medium leading-relaxed text-gray-800">
                       Transforming Communities by Building the Nation's Infrastructure.
                     </p>
+                    <div className="mt-5 h-0.5 w-8 bg-amber-500 transition-all duration-500 group-hover:w-full" />
                   </div>
                 </motion.div>
 
                 <motion.div
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
+                  initial={{ opacity: 0, y: 30, rotate: 2 }}
+                  whileInView={{ opacity: 1, y: 0, rotate: 0 }}
                   viewport={{ once: true }}
-                  custom={2}
-                  className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-amber-200 hover:shadow-xl hover:shadow-amber-100/60"
+                  transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-amber-200 hover:shadow-2xl hover:shadow-amber-100/60"
                 >
-                  <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-amber-50 transition-transform duration-500 group-hover:scale-150" />
+                  <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-amber-50 transition-all duration-700 group-hover:scale-150" />
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-amber-500 via-amber-400 to-transparent" />
                   <div className="relative">
-                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-amber-500 text-white shadow-md shadow-amber-500/30">
-                      <Flag size={20} strokeWidth={2.2} />
+                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/40 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">
+                      <Flag size={22} strokeWidth={2.2} />
                     </div>
-                    <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-amber-600">Mission</h3>
-                    <p className="mt-2 text-sm font-medium leading-relaxed text-gray-800">
-                      Building Lasting Value for Our Customers.
+                    <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600">
+                      — Mission —
+                    </div>
+                    <p className="mt-3 text-sm font-medium leading-relaxed text-gray-800">
+                      Building Lasting Value for Our Customers, People, and Society.
                     </p>
+                    <div className="mt-5 h-0.5 w-8 bg-amber-500 transition-all duration-500 group-hover:w-full" />
                   </div>
                 </motion.div>
               </div>
-            </motion.div>
+            </div>
 
+            {/* RIGHT SIDE — Rotating Core Values Circle */}
             <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, scale: 0.85 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              custom={3}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-5"
             >
-              <div className="relative">
-                <div className="absolute -left-3 -top-3 h-16 w-16 rounded-tl-3xl border-l-2 border-t-2 border-amber-400" />
-                <div className="absolute -bottom-3 -right-3 h-16 w-16 rounded-br-3xl border-b-2 border-r-2 border-amber-400" />
+              <div className="relative mx-auto aspect-square w-full max-w-md">
+                {/* Concentric dashed rings */}
+                <div className="absolute inset-0 rounded-full border-2 border-dashed border-amber-200/60" />
+                <div className="absolute inset-[12%] rounded-full border border-amber-100" />
+                <div className="absolute inset-[26%] rounded-full border border-dashed border-amber-100/80" />
 
-                <div className="rounded-3xl border border-gray-100 bg-gradient-to-br from-gray-50 to-white p-6 shadow-lg md:p-8">
-                  <div className="mb-6 flex items-center justify-between border-b border-gray-200 pb-5">
-                    <div>
-                      <div className="text-xs font-bold uppercase tracking-[0.15em] text-gray-500">
-                        By The Numbers
-                      </div>
-                      <div className="mt-1 text-lg font-bold text-gray-900">Our Track Record</div>
-                    </div>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500 text-white shadow-md shadow-amber-500/30">
-                      <Award size={20} />
-                    </div>
-                  </div>
+                {/* Rotating Orbit */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
+                  className="absolute inset-0"
+                >
+                  {[
+                    { n: '01', title: 'Integrity', icon: ShieldCheck },
+                    { n: '02', title: 'Ownership', icon: Users },
+                    { n: '03', title: 'Fast Movers', icon: Zap },
+                    { n: '04', title: 'Committed', icon: CheckCircle2 },
+                    { n: '05', title: 'Humility', icon: Award },
+                  ].map((value, index, arr) => {
+                    const Icon = value.icon;
+                    const total = arr.length;
+                    const angleDeg = (360 / total) * index - 90;
+                    const angleRad = (angleDeg * Math.PI) / 180;
+                    const radiusPercent = 36;
+                    const x = 50 + radiusPercent * Math.cos(angleRad);
+                    const y = 50 + radiusPercent * Math.sin(angleRad);
 
-                  <div className="grid grid-cols-2 gap-4">
-                    {stats.map((s, i) => (
-                      <motion.div
-                        key={s.label}
-                        variants={scaleIn}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        custom={i}
-                        className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-5 transition-all duration-500 hover:-translate-y-1 hover:border-amber-200 hover:shadow-lg"
+                    return (
+                      <div
+                        key={value.n}
+                        className="absolute"
+                        style={{
+                          left: `${x}%`,
+                          top: `${y}%`,
+                          transform: 'translate(-50%, -50%)',
+                        }}
                       >
-                        <div className="absolute right-3 top-3 text-[10px] font-bold text-gray-300">
-                          {String(i + 1).padStart(2, '0')}
-                        </div>
-                        <div className="text-3xl font-bold text-amber-500 md:text-4xl">
-                          <Counter value={s.value} suffix={s.suffix} />
-                        </div>
-                        <div className="mt-2 text-sm font-semibold text-gray-900">{s.label}</div>
-                        <div className="mt-1 text-[11px] leading-snug text-gray-500">{s.sub}</div>
-                        <div className="mt-3 h-0.5 w-6 bg-amber-400 transition-all duration-500 group-hover:w-12" />
-                      </motion.div>
-                    ))}
-                  </div>
+                        {/* Counter-rotate to keep card upright */}
+                        <motion.div
+                          animate={{ rotate: -360 }}
+                          transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
+                        >
+                          <div className="group flex h-[86px] w-[86px] cursor-pointer flex-col items-center justify-center gap-1 rounded-2xl border-2 border-amber-100 bg-white shadow-lg transition-all duration-300 hover:scale-110 hover:border-amber-400 hover:shadow-2xl hover:shadow-amber-200/60 md:h-24 md:w-24">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-100 text-amber-600 transition-all duration-300 group-hover:bg-amber-500 group-hover:text-white md:h-9 md:w-9">
+                              <Icon size={16} strokeWidth={2.2} />
+                            </div>
+                            <div className="px-1 text-center text-[9px] font-bold uppercase leading-tight tracking-wider text-gray-700 md:text-[10px]">
+                              {value.title}
+                            </div>
+                          </div>
+                        </motion.div>
+                      </div>
+                    );
+                  })}
+                </motion.div>
 
-                  <div className="mt-6 flex items-center gap-2 rounded-xl bg-amber-50 p-3">
-                    <CheckCircle2 size={16} className="shrink-0 text-amber-600" />
-                    <span className="text-xs font-medium text-amber-900">
-                      Registered Class IV with PWD Maharashtra (2025–2030)
-                    </span>
-                  </div>
+                {/* Center Hub */}
+                <div className="pointer-events-none absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
+                  <motion.div
+                    animate={{ scale: [1, 1.06, 1] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                    className="flex h-[86px] w-[86px] flex-col items-center justify-center gap-0.5 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-2xl shadow-amber-500/50 md:h-24 md:w-24"
+                  >
+                    <Sparkles size={16} className="md:size-5" />
+                    <div className="text-[7px] font-bold uppercase tracking-[0.25em] text-amber-100 md:text-[8px]">
+                      Core
+                    </div>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.12em] md:text-[11px]">
+                      Values
+                    </div>
+                  </motion.div>
                 </div>
+
+                {/* Pulsing dot on orbit (decorative) */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
+                  className="absolute inset-0"
+                >
+                  <div className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-amber-500 shadow-lg shadow-amber-500/60" />
+                </motion.div>
               </div>
+
+              {/* Bottom badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="mt-8 flex justify-center"
+              >
+                <div className="flex items-center gap-2 rounded-full border border-amber-200 bg-white px-4 py-2 shadow-md">
+                  <div className="h-2 w-2 animate-pulse rounded-full bg-amber-500" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-amber-700">
+                    The Discipline of the Site
+                  </span>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
-        </div>
-      </Section>
 
+          {/* ===== STATS BAR ===== */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-20 rounded-3xl border border-gray-100 bg-gradient-to-br from-gray-50 to-white p-6 shadow-lg md:p-8"
+          >
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+              {companyIntro.stats.map((s, index) => (
+                <motion.div
+                  key={s.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                  className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-5 transition-all duration-500 hover:-translate-y-1 hover:border-amber-200 hover:shadow-lg"
+                >
+                  <div className="absolute right-3 top-3 text-[10px] font-bold text-gray-300">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+                  <div className="text-3xl font-bold text-amber-500 md:text-4xl">{s.value}</div>
+                  <div className="mt-2 text-sm font-semibold text-gray-900">{s.label}</div>
+                  <div className="mt-1 text-[11px] leading-snug text-gray-500">{s.sub}</div>
+                  <div className="mt-3 h-0.5 w-6 bg-amber-400 transition-all duration-500 group-hover:w-12" />
+                </motion.div>
+              ))}
+            </div>
+            <div className="mt-6 flex items-center justify-center gap-2 rounded-xl bg-amber-50 p-3">
+              <CheckCircle2 size={16} className="shrink-0 text-amber-600" />
+              <span className="text-xs font-medium text-amber-900">
+                Registered Class IV with PWD Maharashtra (2025–2030)
+              </span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
       {/* ===== 3. LEADERSHIP ===== */}
       <section className="relative overflow-hidden bg-gray-50 py-24">
         <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-amber-100/40 blur-3xl" />
